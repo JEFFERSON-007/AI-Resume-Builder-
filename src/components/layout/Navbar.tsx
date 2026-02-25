@@ -24,7 +24,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    if (pathname === "/builder") return null;
+    if (pathname?.startsWith("/builder")) return null;
 
     return (
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] px-4 w-full max-w-2xl">
