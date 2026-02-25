@@ -80,12 +80,32 @@ export default function LandingPage() {
                                 <p className="text-sm text-gray-500">Generating professional summary...</p>
                             </div>
                         </div>
-                        <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-blue-500/30 transition-colors">
-                            <img
-                                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
-                                alt="AI Generation"
-                                className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
-                            />
+                        <div className="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/5 group-hover:border-blue-500/20 transition-colors">
+                            <div className="absolute inset-0 opacity-20">
+                                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(59,130,246,0.1)_50%,transparent_100%)] animate-shimmer" />
+                                <div className="grid grid-cols-12 h-full w-full">
+                                    {[...Array(12)].map((_, i) => (
+                                        <div key={i} className="h-full border-r border-white/5 relative">
+                                            <motion.div
+                                                animate={{
+                                                    top: ["0%", "100%"],
+                                                    opacity: [0, 1, 0]
+                                                }}
+                                                transition={{
+                                                    duration: 2 + Math.random() * 2,
+                                                    repeat: Infinity,
+                                                    delay: Math.random() * 2,
+                                                    ease: "linear"
+                                                }}
+                                                className="absolute left-0 w-full h-1/4 bg-gradient-to-b from-blue-500/0 via-blue-500/20 to-blue-500/0"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-blue-500/20 font-mono text-[80px] font-bold select-none tracking-tighter">AI</span>
+                            </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                             <div className="absolute bottom-6 left-6 right-6">
                                 <p className="text-sm font-medium text-blue-400 mb-2">Optimization complete</p>
