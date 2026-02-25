@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
@@ -13,12 +14,24 @@ const navItems = [
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     if (pathname === "/builder") return null;
 
     return (
         <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] px-4 w-full max-w-2xl">
-            <div className="flex items-center justify-center gap-4 bg-transparent text-gray-400">
+            <div className={`flex items-center justify-center gap-4 transition-all duration-500 rounded-2xl ${isScrolled
+                ? "bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl py-2 px-2"
+                : "bg-transparent border-transparent py-0 px-0"
+                }`}>
                 <div className="flex items-center gap-1">
                     {navItems.map((item) => {
                         const isActive = pathname === item.path;
