@@ -1,0 +1,128 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Wand2, Download, Zap } from "lucide-react";
+import LiquidEther from "@/components/ui/LiquidEther";
+
+const Hero3D = () => {
+    return (
+        <div className="fixed inset-0 -z-10 h-screen w-full">
+            <LiquidEther
+                mouseForce={25}
+                cursorSize={120}
+                colors={['#3b82f6', '#8b5cf6', '#1e40af']}
+                autoDemo={true}
+                resolution={0.6}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black" />
+        </div>
+    );
+};
+
+export default function LandingPage() {
+    return (
+        <div className="flex flex-col items-center justify-center pt-20 px-4 min-h-screen">
+            <Hero3D />
+
+            <section className="max-w-6xl w-full text-center relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider text-blue-400 uppercase bg-blue-400/10 border border-blue-400/20 rounded-full">
+                        AI-Powered Resume Excellence
+                    </span>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+                        Create Your Own Resume <br /> with AI Assistance
+                    </h1>
+                    <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                        Build a professional, high-impact resume in minutes with our AI assistant.
+                        Get smart content suggestions, premium designer templates, and real-time previews.
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Link href="/templates">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold flex items-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                            >
+                                Build Your Resume <ArrowRight className="w-5 h-5" />
+                            </motion.button>
+                        </Link>
+                        <Link href="/templates">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-semibold backdrop-blur-md"
+                            >
+                                View Templates
+                            </motion.button>
+                        </Link>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.4, duration: 1 }}
+                    className="mt-20 relative"
+                >
+                    <div className="glass-dark rounded-2xl p-4 md:p-8 max-w-4xl mx-auto transform perspective-1000 rotate-x-6">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                <Sparkles className="w-6 h-6 text-blue-400" />
+                            </div>
+                            <div className="text-left">
+                                <h3 className="font-semibold text-white">AI Content Assistant</h3>
+                                <p className="text-sm text-gray-500">Generating professional summary...</p>
+                            </div>
+                        </div>
+                        <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-blue-500/30 transition-colors">
+                            <img
+                                src="https://images.unsplash.com/photo-1620712943543-bcc4607b9da0?auto=format&fit=crop&q=80&w=1200"
+                                alt="AI Generation"
+                                className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                            <div className="absolute bottom-6 left-6 right-6">
+                                <p className="text-sm font-medium text-blue-400 mb-2">Optimization complete</p>
+                                <div className="h-2 w-full bg-blue-500/20 rounded-full overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: "100%" }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                        className="h-full bg-blue-500"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            </section>
+
+            <section className="py-32 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                {[
+                    { icon: Wand2, title: "AI Assistant", desc: "Craft perfect professional summaries and bullet points with AI." },
+                    { icon: Zap, title: "Live Preview", desc: "Watch your resume evolve in real-time with AI-driven design." },
+                    { icon: Download, title: "PDF Export", desc: "One-click export to ATS-friendly professional formats." }
+                ].map((feature, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.2 }}
+                        className="glass-dark p-8 rounded-2xl border border-white/5"
+                    >
+                        <feature.icon className="w-10 h-10 text-blue-500 mb-6" />
+                        <h3 className="text-xl font-bold mb-4 text-white">{feature.title}</h3>
+                        <p className="text-gray-400">{feature.desc}</p>
+                    </motion.div>
+                ))}
+            </section>
+        </div>
+    );
+}
