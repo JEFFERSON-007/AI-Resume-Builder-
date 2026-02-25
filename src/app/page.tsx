@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Wand2, Download, Zap, BrainCircuit, TrendingUp, Search, Palette } from "lucide-react";
+import { ArrowRight, Wand2, Download, Zap } from "lucide-react";
 import LiquidEther from "@/components/ui/LiquidEther";
 
 const Hero3D = () => {
@@ -64,83 +64,6 @@ export default function LandingPage() {
                     </div>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4, duration: 1 }}
-                    className="mt-20 relative"
-                >
-                    <div className="glass-dark rounded-2xl p-4 md:p-8 max-w-5xl mx-auto transform perspective-1000 rotate-x-6 border border-white/10">
-                        <div className="flex items-center justify-between mb-8">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                    <Sparkles className="w-6 h-6 text-blue-400" />
-                                </div>
-                                <div className="text-left">
-                                    <h3 className="font-semibold text-white uppercase tracking-wider text-sm">AI Content Assistant</h3>
-                                    <p className="text-xs text-gray-500">Intelligent Resume Optimization Engine</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-2">
-                                <div className="w-2 h-2 rounded-full bg-red-500/40" />
-                                <div className="w-2 h-2 rounded-full bg-yellow-500/40" />
-                                <div className="w-2 h-2 rounded-full bg-green-500/40" />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-                            {[
-                                { label: "AI Summary", icon: BrainCircuit, color: "text-blue-400" },
-                                { label: "Impact Bullets", icon: TrendingUp, color: "text-green-400" },
-                                { label: "Keywords", icon: Search, color: "text-purple-400" },
-                                { label: "Resume Score", icon: Palette, color: "text-orange-400" },
-                            ].map((opt, i) => (
-                                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-colors">
-                                    <div className={`p-2 rounded-lg bg-black/20 ${opt.color}`}>
-                                        <opt.icon className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-xs font-semibold text-gray-300">{opt.label}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="relative aspect-[21/9] rounded-xl overflow-hidden bg-black/40 border border-white/5 group-hover:border-blue-500/20 transition-colors">
-                            <div className="absolute inset-0 opacity-20">
-                                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(59,130,246,0.1)_50%,transparent_100%)] animate-shimmer" />
-                                <div className="grid grid-cols-12 h-full w-full">
-                                    {[...Array(12)].map((_, i) => (
-                                        <div key={i} className="h-full border-r border-white/5 relative">
-                                            <motion.div
-                                                animate={{
-                                                    top: ["0%", "100%"],
-                                                    opacity: [0, 1, 0]
-                                                }}
-                                                transition={{
-                                                    duration: 2 + Math.random() * 2,
-                                                    repeat: Infinity,
-                                                    delay: Math.random() * 2,
-                                                    ease: "linear"
-                                                }}
-                                                className="absolute left-0 w-full h-1/4 bg-gradient-to-b from-blue-500/0 via-blue-500/20 to-blue-500/0"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-blue-500/10 font-mono text-[60px] font-bold select-none tracking-tighter">PROCESSING...</span>
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                                    <p className="text-xs font-medium text-blue-400">Optimization complete</p>
-                                </div>
-                                <p className="text-[10px] text-gray-600 uppercase tracking-widest">98% Match Rate</p>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
             </section>
 
             <section className="py-32 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
