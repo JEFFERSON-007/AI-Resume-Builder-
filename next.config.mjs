@@ -4,11 +4,12 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    // If your GitHub repository name is NOT <username>.github.io,
-    // you need to set the base path to the repository name.
+    // Required for GitHub Pages to correctly serve index.html files in subdirectories
+    trailingSlash: true,
     // Repository name: AI-Resume-Builder-
     basePath: '/AI-Resume-Builder-',
-    assetPrefix: '/AI-Resume-Builder-/',
+    // assetPrefix is usually not needed when basePath is set, but can be used for CDN
+    // assetPrefix: '/AI-Resume-Builder-',
 };
 
 export default nextConfig;

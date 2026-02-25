@@ -45,20 +45,20 @@ const layoutImages: Record<string, string> = {
 };
 
 const layoutLocalImages: Record<string, string> = {
-    classic: "/templates/signature-premium.png",
-    sidebar: "/templates/sidebar-modern.png",
-    grid: "/templates/creative-grid.png",
-    executive: "/templates/executive-suite.png",
-    minimalist: "/templates/minimalist-mono.png",
-    compact: "/templates/clean-professional.png",
-    modern: "/templates/modern-dynamic.png",
-    technical: "/templates/technical-monospace.png",
-    clean: "/templates/clean-essential.png",
-    bold: "/templates/bold-impact.png",
-    corporate: "/templates/corporate.png",
-    developer: "/templates/developer.png",
-    "modern-minimal": "/templates/modern-minimal.png",
-    entrepreneur: "/templates/modern-dynamic.png", // Reusing modern-dynamic for entrepreneur as it fits best if no specific image
+    classic: "/AI-Resume-Builder-/templates/signature-premium.png",
+    sidebar: "/AI-Resume-Builder-/templates/sidebar-modern.png",
+    grid: "/AI-Resume-Builder-/templates/creative-grid.png",
+    executive: "/AI-Resume-Builder-/templates/executive-suite.png",
+    minimalist: "/AI-Resume-Builder-/templates/minimalist-mono.png",
+    compact: "/AI-Resume-Builder-/templates/clean-professional.png",
+    modern: "/AI-Resume-Builder-/templates/modern-dynamic.png",
+    technical: "/AI-Resume-Builder-/templates/technical-monospace.png",
+    clean: "/AI-Resume-Builder-/templates/clean-essential.png",
+    bold: "/AI-Resume-Builder-/templates/bold-impact.png",
+    corporate: "/AI-Resume-Builder-/templates/corporate.png",
+    developer: "/AI-Resume-Builder-/templates/developer.png",
+    "modern-minimal": "/AI-Resume-Builder-/templates/modern-minimal.png",
+    entrepreneur: "/AI-Resume-Builder-/templates/modern-dynamic.png",
 };
 
 const templates = layouts.flatMap((layout) =>
