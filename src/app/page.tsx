@@ -82,7 +82,7 @@ export default function LandingPage() {
                         </div>
                         <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-blue-500/30 transition-colors">
                             <img
-                                src="https://images.unsplash.com/photo-1620712943543-bcc4607b9da0?auto=format&fit=crop&q=80&w=1200"
+                                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200"
                                 alt="AI Generation"
                                 className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
                             />
