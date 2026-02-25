@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Wand2, Download, Zap } from "lucide-react";
+import { ArrowRight, Sparkles, Wand2, Download, Zap, BrainCircuit, TrendingUp, Search, Palette } from "lucide-react";
 import LiquidEther from "@/components/ui/LiquidEther";
 
 const Hero3D = () => {
@@ -70,17 +70,41 @@ export default function LandingPage() {
                     transition={{ delay: 0.4, duration: 1 }}
                     className="mt-20 relative"
                 >
-                    <div className="glass-dark rounded-2xl p-4 md:p-8 max-w-4xl mx-auto transform perspective-1000 rotate-x-6">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                                <Sparkles className="w-6 h-6 text-blue-400" />
+                    <div className="glass-dark rounded-2xl p-4 md:p-8 max-w-5xl mx-auto transform perspective-1000 rotate-x-6 border border-white/10">
+                        <div className="flex items-center justify-between mb-8">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                    <Sparkles className="w-6 h-6 text-blue-400" />
+                                </div>
+                                <div className="text-left">
+                                    <h3 className="font-semibold text-white uppercase tracking-wider text-sm">AI Content Assistant</h3>
+                                    <p className="text-xs text-gray-500">Intelligent Resume Optimization Engine</p>
+                                </div>
                             </div>
-                            <div className="text-left">
-                                <h3 className="font-semibold text-white">AI Content Assistant</h3>
-                                <p className="text-sm text-gray-500">Generating professional summary...</p>
+                            <div className="flex gap-2">
+                                <div className="w-2 h-2 rounded-full bg-red-500/40" />
+                                <div className="w-2 h-2 rounded-full bg-yellow-500/40" />
+                                <div className="w-2 h-2 rounded-full bg-green-500/40" />
                             </div>
                         </div>
-                        <div className="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/5 group-hover:border-blue-500/20 transition-colors">
+
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                            {[
+                                { label: "AI Summary", icon: BrainCircuit, color: "text-blue-400" },
+                                { label: "Impact Bullets", icon: TrendingUp, color: "text-green-400" },
+                                { label: "Keywords", icon: Search, color: "text-purple-400" },
+                                { label: "Resume Score", icon: Palette, color: "text-orange-400" },
+                            ].map((opt, i) => (
+                                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-colors">
+                                    <div className={`p-2 rounded-lg bg-black/20 ${opt.color}`}>
+                                        <opt.icon className="w-4 h-4" />
+                                    </div>
+                                    <span className="text-xs font-semibold text-gray-300">{opt.label}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="relative aspect-[21/9] rounded-xl overflow-hidden bg-black/40 border border-white/5 group-hover:border-blue-500/20 transition-colors">
                             <div className="absolute inset-0 opacity-20">
                                 <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(59,130,246,0.1)_50%,transparent_100%)] animate-shimmer" />
                                 <div className="grid grid-cols-12 h-full w-full">
@@ -104,19 +128,15 @@ export default function LandingPage() {
                                 </div>
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-blue-500/20 font-mono text-[80px] font-bold select-none tracking-tighter">AI</span>
+                                <span className="text-blue-500/10 font-mono text-[60px] font-bold select-none tracking-tighter">PROCESSING...</span>
                             </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                            <div className="absolute bottom-6 left-6 right-6">
-                                <p className="text-sm font-medium text-blue-400 mb-2">Optimization complete</p>
-                                <div className="h-2 w-full bg-blue-500/20 rounded-full overflow-hidden">
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        animate={{ width: "100%" }}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                        className="h-full bg-blue-500"
-                                    />
+                            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                                    <p className="text-xs font-medium text-blue-400">Optimization complete</p>
                                 </div>
+                                <p className="text-[10px] text-gray-600 uppercase tracking-widest">98% Match Rate</p>
                             </div>
                         </div>
                     </div>
