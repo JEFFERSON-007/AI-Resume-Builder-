@@ -37,8 +37,9 @@ export default function ResumePreview() {
         const mouseY = e.clientY - rect.top;
         const xPct = mouseX / width - 0.5;
         const yPct = mouseY / height - 0.5;
-        x.set(xPct);
-        y.set(yPct);
+        // Effect disabled for better interactivity and focus stability
+        x.set(0);
+        y.set(0);
     };
 
     const handleMouseLeave = () => {

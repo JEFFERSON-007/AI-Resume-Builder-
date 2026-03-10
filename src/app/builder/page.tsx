@@ -235,7 +235,7 @@ export default function BuilderPage() {
 
             {/* Right Side: Preview */}
             <div className="hidden lg:flex lg:w-1/2 bg-[#050505] items-center justify-center p-8 overflow-hidden relative">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.08)_0%,rgba(0,0,0,0)_60%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.08)_0%,rgba(0,0,0,1)_60%)] pointer-events-none" />
                 <div className="absolute top-10 right-10 flex flex-col gap-4 text-center">
                     <div className="glass-dark p-4 rounded-2xl animate-float">
                         <span className="text-xs text-gray-500 uppercase block mb-1">Status</span>
