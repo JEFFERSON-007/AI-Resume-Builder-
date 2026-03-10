@@ -2,7 +2,7 @@
 
 A premium, interactive, and AI-driven resume builder built with Next.js. Create professional resumes in minutes with real-time feedback and a polished design experience.
 
-### 🌐 [Live Demo](https://jefferson-007.github.io/AI-Resume-Builder-/)
+### 🌐 [Live Demo](https://jefferson-007.github.io/AI-Resume-Builder/)
 
 ---
 
@@ -51,8 +51,8 @@ A premium, interactive, and AI-driven resume builder built with Next.js. Create 
 
 ### Step 1: Clone and Install
 ```bash
-git clone https://github.com/JEFFERSON-007/AI-Resume-Builder-.git
-cd AI-Resume-Builder-
+git clone https://github.com/JEFFERSON-007/AI-Resume-Builder.git
+cd AI-Resume-Builder
 npm install
 ```
 
