@@ -86,6 +86,32 @@ export default function BuilderPage() {
                 body: JSON.stringify({ prompt, type }),
             });
 
+            if (!res.ok) {
+                // If API is not found (Static GitHub Pages), provide a helpful Demo Response
+                console.warn("AI API not found. Using Demo Fallback.");
+                const mockResults: Record<string, string> = {
+                    summary: "Experienced professional with a strong background in developing scalable web applications. Expert in React, Node.js, and cloud architecture, with a proven track record of optimizing performance and leading high-performing technical teams.",
+                    bullets: "• Spearheaded the development of a real-time analytics dashboard, increasing user engagement by 45%.\n• Optimized database queries, reducing API latency by 300ms for high-traffic endpoints.\n• Led a cross-functional team of 8 engineers to deliver a mission-critical e-commerce migration ahead of schedule.",
+                    scoring: '{"score": 85, "ats_feedback": "Excellent structure and keyword usage.", "suggestions": ["Add more quantified metrics", "Include modern certifications"]}'
+                };
+
+                const result = mockResults[action] || "This AI feature is currently in Demo mode on GitHub Pages. To use full live AI, host on a platform with server-side support like Vercel!";
+
+                // Simulate net delay
+                await new Promise(r => setTimeout(r, 800));
+
+                if (action === "summary") updateSummary(result);
+                else if (action === "bullets") {
+                    const recentExp = resumeData.experience[0];
+                    if (recentExp) updateExperience(recentExp.id, { description: result });
+                } else if (action === "scoring") {
+                    const parsed = JSON.parse(result);
+                    alert(`Demo Resume Score: ${parsed.score}/100\n\nATS Feedback: ${parsed.ats_feedback}\n\nTop Suggestions:\n${parsed.suggestions.join("\n")}`);
+                }
+                setAiOpen(false);
+                return;
+            }
+
             const data = await res.json();
             if (data.result) {
                 if (action === "summary") {
